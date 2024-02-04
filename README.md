@@ -1,18 +1,3 @@
-<!------------------------------->
-<!------------------------------->
-<!------------------------------->
-<!------------------------------->
-<!------------------------------->
-<!------------------------------->
-<!------------------------------->
-<!------------------------------->
-<!------------------------------->
-<!------------------------------->
-<!------------------------------->
-<!------------------------------->
-<!------------------------------->
-<!------- Abdelrahman Gamal ----->
-<!------------- [ 1 ] ----------->
 
 
 # 0️⃣ [ Open Commend ]
@@ -32,7 +17,7 @@ pip --version
 pip install virtualenv
 ```
 
-# Create The Project Directory 📁
+## Create The Project Directory 📁
 ```
 mkdir Website
 ```
@@ -41,18 +26,7 @@ mkdir Website
 ```
 cd Website
 ```
-
-> ### Your Path => [ 📍 ] E:Website
-
-# Initialize A Git Repo Within That Directory ⬇️
-```
-git init
-```
-
-# If Starting From An Existing Repo: ⬇️
-```
-git clone <<repo_url>>
-```
+> ## Your Path => [ 📍 ] E:Website
 
 ## Create Virtualenv For Your Owner Project 📁
 ```
@@ -84,18 +58,6 @@ pip install -U Django
 ## Upgrade Pip ( If Necessary ) => [ 📦 ]
 ```
 py -m pip install --upgrade pip
-```
-
-## Create A Requirements File That Contains 📝
-## your project dependencies
-```
-pip freeze > requirements.txt
-```
-
-## to install your project requirements 📝
-## (if a file already exists)
-```
-pip install -r requirements.txt
 ```
 
 ## Create A Django Project  => [ ✔️ ]
@@ -136,50 +98,4 @@ http://127.0.0.1:8000/
 ## [ Go To  ] 👉️
 ```
 http://127.0.0.1:8000/admin/
-```
-
-# Open Settings => [ 📝 ]
-
-> ### The Path [ E:Website\backend\backend\settings.py ]
-
-
-# Import OS 
-
-```
-import os
-```
-
-## to add localhost for use in development in 
-## 🌐 ALLOWED_HOSTS يُستخدم لتحديد الأنطقة المسموح  HTTP بها للطلبات .
-## Add 127.0.0.1 to ALLOWED_HOSTS
-```
-ALLOWED_HOSTS = [
-    'localhost', 
-    '127.0.0.1'
-    # . . . 
-]
-```
-{% comment %} ALLOWED_HOSTS = ['127.0.0.1'] {% endcomment %}
-
-## 🔄 CORS_ALLOWED_ORIGIN يُستخدم لتحديد مصادر الأصل المسموح بها للوصول عبر AJAX.
-```
-CORS_ALLOWED_ORIGIN = [
-  "https://localhost:8080",
-  "https://127.0.0.1:8000",
-  # . . .
-]
-```
-
-## 🚀 إذا قمت بتعيين CORS_ORIGIN_ALLOW_ALL إلى True، فستكون جميع المصادر مسموحًا لها بالوصول، وستتجاوز سياسة نفس الأصل.
-```
-CORS_ORIGIN_ALLOW_ALL = True
-```
-
-## Add Your App => [ 💻 ]
-```
-INSTALLED_APPS = [
-  'pages.apps.PagesConfig',
-  'products.apps.ProductsConfig',
-  # . . .
-]
 ```
