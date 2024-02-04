@@ -2,8 +2,8 @@
 
 
 
-0️⃣
-# [ Open Commend ]
+# 0️⃣ [ Open Commend ]
+
 
 ## Pytho Version
 ```
