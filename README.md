@@ -160,9 +160,7 @@ http://127.0.0.1:8000/admin/
 
 # Open Settings => [ 📝 ]
 
-> ## The Path
-```
-E:Website\backend\backend\settings.py 
+> ### The Path [ E:Website\backend\backend\settings.py ]
 ```
 
 # Import OS 
