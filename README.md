@@ -104,7 +104,12 @@ python manage.py createsuperuser
 ```
 python manage.py runserver
 ```
-
+```
+python manage.py runserver 8001
+```
+```
+python manage.py runserver 0.0.0.0:8000
+```
 ## [ Go To  ] 👉️
 ```
 http://127.0.0.1:8000/
@@ -115,12 +120,8 @@ http://127.0.0.1:8000/
 http://127.0.0.1:8000/admin/
 ```
 _______________________________________
-_______________________________________
-_______________________________________
-_______________________________________
-_______________________________________
 
-## Edit Settings.py  => [ 📝 ]
+## Edit Settings.py  In Project => [ 📝 ]
 > ##### Your Path [ E:Website\backend\backend\settings.py ]
 
 ## Add Your App To INSTALLED_APPS => [ 💻 ]
@@ -132,11 +133,7 @@ INSTALLED_APPS = [
 ]
 ```
 _______________________________________
-_______________________________________
-_______________________________________
-_______________________________________
-_______________________________________
-## Edit Urls.py => [ 📝 ]
+## Edit Urls.py In Project => [ 📝 ]
 > ##### Your Path [ E:Website\backend\backend\urls.py ]
 ```
 from django.contrib import admin
@@ -149,10 +146,6 @@ urlpatterns = [
     path('', include('products.urls')),
 ]
 ```
-_______________________________________
-_______________________________________
-_______________________________________
-_______________________________________
 _______________________________________
 ## [ Create File urls.py In Side App ] => [ 📝 ]
 
@@ -179,15 +172,62 @@ urlpatterns = [
 ]
 ```
 _______________________________________
-_______________________________________
-_______________________________________
-_______________________________________
-_______________________________________
 ## [ Views File In Side App  ] => [ 📝 ]
-_______________________________________
-_______________________________________
-_______________________________________
-_______________________________________
+#### [ 1 ]
+```
+from django.http import HttpResponse
+Create your views here.
+def index(request):
+  return HttpResponse("Hello, world. You're at the index page.")
+```
+#### [ 2 ]
+```
+from django.shortcuts import render
+def index(request):
+  return render(request, 'pages/index.html')
+```
+#### [ 3 ] Data In Templates
+```
+from django.shortcuts import render
+def index(request):
+  return render(request, 'pages/index.html', {'name': 'Hossam Rashad'})
+```
+
+#### [ 4 ] Data In Templates
+```
+from django.shortcuts import render
+def index(request):
+  return render(request, 'pages/index.html', {'name': 'Hossam Rashad', 'age': 30})
+```
+
+#### [ 5 ]  Data In Templates
+```
+from django.shortcuts import render
+def index(request):
+  x = {'name': 'Hossam Rashad', 'age': 20}
+  return render(request, 'pages/index.html', x)
+```
+#### [ 6 ] Felters In Templates With Data
+```
+from django.shortcuts import render
+def index(request):
+  x = {
+    "empty": "",
+    "name": "Hossam Rashad",
+    "title": "Home Page",
+    "age": 20,
+    "list": [1, 2, 3],
+    "dict": {"a": 1, "b": 2},
+    "none": None,
+    "bool": True,
+    "bool2": False,
+    "fileSize":16154544889,
+    "fileSize1":54645758,
+    "fileSize2":111000,
+    "fileSize3":503
+  }
+  return render(request, 'pages/index.html', x)
+```
 _______________________________________
 ## [ Create Templates Folder  ] => [ 📁 ]
 
@@ -210,11 +250,109 @@ templates
 
 templates\pages\index.html
 ```
+#### [ 2 ]
+```
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <h2>Home Page</h2>
+    <p>Welcome to my first Django project!</p>
+  </body>
+</html>
+```
+#### [ 3 ] Data In Templates
+```
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h2>Name = {{name}}</h2>
+  </body>
+</html>
+```
 
-_______________________________________
-_______________________________________
-_______________________________________
-_______________________________________
+#### [ 4 ] Data In Templates
+```
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h2>Name = {{name}}</h2>
+    <h2>Age = {{age}}</h2>
+  </body>
+</html>
+```
+#### [ 5 ]  Data In Templates
+```
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h2>Name = {{name}}</h2>
+    <h2>Age = {{age}}</h2>
+  </body>
+</html>
+```
+#### [ 6 ] Felters In Templates With Data
+```
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h2>If No Data = {{empty|default:"Nothing Found"}}</h2>
+    <h2>String Slice = {{title|slice:5}}</h2>
+    <h2>String Slice = {{title|slice:'0:5'}}</h2>
+    <h2>Add String Or Value = {{title|add:" Index"}}</h2>
+    <h2>Add String Or Value = {{title|add:" Index"}}</h2>
+    <h2>String Length = {{title|length}}</h2>
+    <h2>String Cut = {{title|cut:' '}}</h2>
+    <h2>String Cut = {{title|cut:'o'}}</h2>
+    <h2>String To Lower Case = {{title|lower}}</h2>
+    <h2>String First To Upper Case = {{title|capfirst}}</h2>
+    <h2>String To Upper Case = {{title|upper}}</h2>
+    <h2>age = {{age}}</h2>
+    <h2>File Size = {{fileSize|filesizeformat}}</h2>
+    <h2>File Size = {{fileSize1|filesizeformat}}</h2>
+    <h2>File Size = {{fileSize2|filesizeformat}}</h2>
+    <h2>File Size = {{fileSize3|filesizeformat}}</h2>
+  </body>
+</html>
+```
+#### [ Tag In DTL ]
+- Extends 
+#### [ 1 ]
+```
+Page Base
+<style>
+  body {
+    background: #000
+  }
+</style>
+```
+```
+Page Index
+{% extends 'base/base.html' %}
+```
+#### [ 2 ]
+#### [ 3 ]
+#### [ 4 ]
+#### [ 5 ]
+- Extends 
+- Block 
+- Include
+- If
+- For
+- Url
+
+
+
 _______________________________________
 
 ## Edit Settings.py  => [ 📝 ]
